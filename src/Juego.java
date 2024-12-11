@@ -18,6 +18,8 @@
 			boolean juegoActivo = true;
 			char tablero[][] = new char[3][3];
 			String ganador;
+			
+			String revancha = " ";
 
 			System.out.println("................................");
 			System.out.println(":Bienvenido a 3 en raya en JAVA:");
@@ -124,8 +126,8 @@
 
 					// Pregunto por si quieren revancha
 					System.out.println("¿Quereis jugar otra vez? (Si / No): ");
-					String opcion = sc.next().toLowerCase();
-					if (!opcion.equals("si")) {
+					revancha = sc.next().toLowerCase();
+					if (!revancha.equals("si")) {
 						System.out.println("Gracias por jugar. ¡Adiós!");
 						break;
 					} else {
@@ -140,7 +142,7 @@
 					System.out.println("Opcion no valida");
 				}
 
-			}while(option.equals("no"));
+			}while(revancha.equals("si"));
 
 
 		}
