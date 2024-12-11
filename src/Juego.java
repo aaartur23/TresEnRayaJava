@@ -58,6 +58,17 @@ public class Juego {
 						}
 						System.out.println();
 					}
+
+					// Turno del jugador actual
+					System.out.println((turnoJugador1 ? nplayer1 : nplayer2) +
+							", es tu turno. Introduce fila y columna (0-2):");
+
+					int fila = sc.nextInt();
+					int columna = sc.nextInt();
+
+					// Valido movimiento
+					if (fila >= 0 && fila < 3 && columna >= 0 && columna < 3 && tablero[fila][columna] == espacio) {
+						tablero[fila][columna] = turnoJugador1 ? player1 : player2;
 				
 			} else if(option.equals("no")) {
 				System.out.println("Has salido correctamente...");
