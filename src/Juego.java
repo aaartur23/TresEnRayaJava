@@ -36,7 +36,28 @@ public class Juego {
 				nplayer1 = sc.next();
 				System.out.print("Introduce el nombre del Jugador 2: ");
 				nplayer2 = sc.next();
-				
+
+				// Inicializo el tablero
+				for (int i = 0; i < 3; i++) {
+					for (int j = 0; j < 3; j++) {
+						tablero[i][j] = espacio;
+					}
+				}
+
+				// Lanzo moneda para determinar el primer turno
+				turnoJugador1 = rn.nextBoolean();
+				System.out.println("\n¡El sorteo ha determinado que comienza " +
+						(turnoJugador1 ? nplayer1 : nplayer2) + "!\n");
+
+				while (juegoActivo) {
+					// Mostrar tablero
+					System.out.println("Tablero actual:");
+					for (int i = 0; i < 3; i++) {
+						for (int j = 0; j < 3; j++) {
+							System.out.print(tablero[i][j] + " ");
+						}
+						System.out.println();
+					}
 				
 			} else if(option.equals("no")) {
 				System.out.println("Has salido correctamente...");
