@@ -69,6 +69,31 @@ public class Juego {
 					// Valido movimiento
 					if (fila >= 0 && fila < 3 && columna >= 0 && columna < 3 && tablero[fila][columna] == espacio) {
 						tablero[fila][columna] = turnoJugador1 ? player1 : player2;
+
+						// Compruebo si alguien ha ganado
+						boolean hayGanador = false;
+
+						// Compruebo filas
+						for (int i = 0; i < 3; i++) {
+							if (tablero[i][0] == tablero[i][1] && tablero[i][1] == tablero[i][2] && tablero[i][0] != espacio) {
+								hayGanador = true;
+							}
+						}
+
+						// Compruebo columnas
+						for (int i = 0; i < 3; i++) {
+							if (tablero[0][i] == tablero[1][i] && tablero[1][i] == tablero[2][i] && tablero[0][i] != espacio) {
+								hayGanador = true;
+							}
+						}
+
+						// Compruebo diagonales
+						if (tablero[0][0] == tablero[1][1] && tablero[1][1] == tablero[2][2] && tablero[0][0] != espacio) {
+							hayGanador = true;
+						}
+						if (tablero[0][2] == tablero[1][1] && tablero[1][1] == tablero[2][0] && tablero[0][2] != espacio) {
+							hayGanador = true;
+						}
 				
 			} else if(option.equals("no")) {
 				System.out.println("Has salido correctamente...");
