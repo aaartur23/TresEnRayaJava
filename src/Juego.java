@@ -4,6 +4,7 @@ public class Juego {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+		Random rn = new Random();
 		
 		String nplayer1 = " ";
 		String nplayer2 = " ";
@@ -11,14 +12,12 @@ public class Juego {
 		char player1 = 'X';
 		char player2 = 'O';
 		char espacio = '-';
-		
+
 		String option = " ";
-		
-		boolean turno = true;
-		
+		boolean turnoJugador1;
+		boolean juegoActivo = true;
 		char tablero[][] = new char[3][3];
-		
-		int fila, columna = 0;
+		String ganador;
 		
 		System.out.println("................................");
 		System.out.println(":Bienvenido a 3 en raya en JAVA:");
@@ -32,7 +31,11 @@ public class Juego {
 			
 			if(option.equals("si")) {
 				System.out.println("Empecemos !");
-				
+
+				System.out.print("Introduce el nombre del Jugador 1: ");
+				nplayer1 = sc.next();
+				System.out.print("Introduce el nombre del Jugador 2: ");
+				nplayer2 = sc.next();
 				
 				
 			} else if(option.equals("no")) {
