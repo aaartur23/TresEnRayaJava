@@ -94,8 +94,35 @@ public class Juego {
 						if (tablero[0][2] == tablero[1][1] && tablero[1][1] == tablero[2][0] && tablero[0][2] != espacio) {
 							hayGanador = true;
 						}
-				
-			} else if(option.equals("no")) {
+
+						if (hayGanador) {
+							juegoActivo = false;
+							ganador = turnoJugador1 ? nplayer1 : nplayer2;
+							System.out.println("¡" + ganador + " ha ganado!");
+						} else {
+							// Compruebo empate
+							boolean empate = true;
+							for (int i = 0; i < 3; i++) {
+								for (int j = 0; j < 3; j++) {
+									if (tablero[i][j] == espacio) {
+										empate = false;
+									}
+								}
+							}
+							if (empate) {
+								juegoActivo = false;
+								System.out.println("¡Es un empate!");
+							}
+						}
+
+						// Cambio turno
+						turnoJugador1 = !turnoJugador1;
+					} else {
+						System.out.println("Movimiento inválido. Intenta de nuevo.");
+					}
+				}
+
+					} else if(option.equals("no")) {
 				System.out.println("Has salido correctamente...");
 				break;
 			} else { 
